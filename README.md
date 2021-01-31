@@ -25,4 +25,4 @@ let myFirstTemplate = new Tersum.Define({
 
 You have now defined your first Tersum.js **Template**, _awsome!_ As you can see there are two parameters that must be passed when creating a Tersum.js **Template**, these are `element` and `template` (Don't worry, there's a _lot_ more we can get into down the line). 
 
-_**But what are `element` and `template` doing?**_
+_**But what are**_ `element` _**and**_ `template` _**doing?**_
