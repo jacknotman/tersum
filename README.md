@@ -119,7 +119,7 @@ To get started we first have to create an html file, with script tag pointing to
         <meta name="description" content="My Awesome App">
     </head>
     <body>
-	<script type="text/javascript" src="tersum.js"></script>
+	<script type="text/javascript" src="tersum.min.js"></script>
         <script type="text/javascript" src="main.js"></script>
     </body>
 </html>
