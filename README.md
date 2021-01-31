@@ -26,8 +26,9 @@ let myFirstElement = new Tersum.Create(myFirstTemplate, {
 document.body.appendChild(myFirstElement.outer); // A Custom Element is appended with a <p> element containing the text 'Hello World!'
 
 setTimeout(() => {
-	myFirstElement.message_part_1 = 'Goodbye'; // After three seconds we update the DOM to read 'Goodbye World!'
-}, 3000);
+	myFirstElement.message_part_1 = 'Goodbye'; 
+	myFirstElement.message_part_2 = '<strong>Friend</strong>';
+}, 3000); // After three seconds we update the DOM to read 'Goodbye Friend!'
 ```
 
 ## Getting Started Guide
