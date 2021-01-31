@@ -4,24 +4,33 @@
 
 tersum.js is a lightweight MVC Framework built to compliment Vanilla JS, focused on making it easier to create lightweight, resuable, and adaptable components for use in your Web Application. 
 
+In the Getting Started Guide we will walk through how the tersum.js framework can be used to create adaptive, fast, developer friendly web applications, with the power and versatility of vastly more complex frameworks. 
+
+As a taster here is an example of a simple tersum.js application, which will print 'Hello World!' to the DOM, and then automatically update it to read 'Goodbye World!' after 3 seconds. 
+
 ```Javascript
 import { Tersum } from './your-awsome-path/tersum.min.js';
 
 let myFirstTemplate = new Tersum.Define({
 	element: 'helloWorld',
-	template: `<p>{-message-}</p>`,
+	template: `<p>{-message_part_1-} {-message_part_2-}</p>`,
 });
 
 let myFirstElement = new Tersum.Create(myFirstTemplate, {
 	variables: {
-		message: `Hello World!`,
+		message_part_1: `Hello`,
+		message_part_2: `World!`,
 	},
 });
 
-document.body.appendChild(myFirstElement.outer);
+document.body.appendChild(myFirstElement.outer); // A Custom Element is appended with a <p> element containing the text 'Hello World!'
+
+setTimeout(() => {
+	myFirstElement.message_part_1 = 'Goodbye'; // After three seconds we update the DOM to read 'Goodbye World!'
+}, 3000);
 ```
 
-## Getting Started
+## Getting Started Guide
 
 Getting started with tersum.js is easy, firstly let's start off with a basic Hello World example, and expand things from there.
 
