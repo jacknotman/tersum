@@ -61,7 +61,7 @@ _**But what are**_ `outer` _**and**_ `inner` _**?**_
 
 * `inner` refers to the `Shadow DOM` contained within our `outer` container, this is where the contents of our `template` from the tersum.js **Template** we created will be placed. 
 
-Now that you have some understanding of how the `outer` and `inner` properties of our Tersum.js **Element** function, we can move on to appending our Tersum.js **Element** to the DOM, we will place our Hello World message into the document body like so:
+Now that you have some understanding of how the `outer` and `inner` properties of our Tersum.js **Element** function, we can move on to appending our Tersum.js **Element** to the DOM, we will place our Tersum.js **Element** message into the document body like so:
 
 ```javascript
 document.body.appendChild(myFirstElement.outer);
