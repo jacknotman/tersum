@@ -3,8 +3,8 @@ const Tersum = {
 		// Ensure the 'tersus-variablehelper' is defined - this is used for initiating
 		// and updating tersus variables, as the Define method has to be called before 
 		// an element can be created, this is the best place to check for it. 
-		if(!customElements.get('tersus-variablehelper')){
-			window.customElements.define('tersus-variablehelper', class extends HTMLElement {
+		if(!customElements.get('tersum-variablehelper')){
+			window.customElements.define('tersum-variablehelper', class extends HTMLElement {
 				constructor() {
 					super(); 
 				}
@@ -18,7 +18,7 @@ const Tersum = {
 			console.error('A custom element name must be defined');
 			return false;
 		} else {
-			this.elementName = (data.element + '-template').toLowerCase();
+			this.elementName = (data.element + '-tersum').toLowerCase();
 		}
 		// Define the custom element using the provided name
 		window.customElements.define(this.elementName, class extends HTMLElement {
@@ -137,7 +137,7 @@ const Tersum = {
 				}
 				for (const [key, value] of Object.entries(attr.variables)) {
 					this[key] = value;
-					let variableElement = document.createElement('tersus-variablehelper');
+					let variableElement = document.createElement('tersum-variablehelper');
 					variableElement.setAttribute(`_tersus-ref`, `${key}`);
 					variableElement.innerHTML = value;
 					let cleanVariable = '{-' + key + '-}';
