@@ -73,17 +73,17 @@ let myFirstElement = new Tersum.Create(myFirstTemplate, {
 });
 ```
 
-As you can see the `Tersum.create` constructor takes two arguments, firstly a refrence to the tersum.js **Template** we created previously and an object containing a further object, `variables`. As with the the `tersus.Define` constructor, there is a lot more we can do with these elements, however we will keep things simple for now. 
+As you can see the `Tersum.create` constructor takes two arguments, firstly a refrence to the tersum.js **Template** we created previously and an object containing a further object, `variables`. As with the the `tersum.Define` constructor, there is a lot more we can do with these elements, however we will keep things simple for now. 
 
 _**But what does**_ `variables` _**do?**_
 
-* `variables` is an object, representing a series of key and value pairs, correspoding to the Tersum.js **Template Variables** we created in our tersum.js **Template**, in the above example this is `{-message-}` when a tersus.js **Element** is created we replace these variables using the corresponding key : value pair defined in our `variables` object, so using the above example `{-message-}` will be replaced with `Hello World!`.
+* `variables` is an object, representing a series of key and value pairs, correspoding to the Tersum.js **Template Variables** we created in our tersum.js **Template**, in the above example this is `{-message-}` when a tersum.js **Element** is created we replace these variables using the corresponding key : value pair defined in our `variables` object, so using the above example `{-message-}` will be replaced with `Hello World!`.
 
 Now that we have created our Tersum.js **Element** we can display it within to our application, this is where the key differences between Tersum.js **Element's** and regular `DOM Objects` become most apparent. Our Tersum.js **Element** has a number of properties available, the two most important of which being `outer` and `inner`. 
 
 _**But what are**_ `outer` _**and**_ `inner` _**?**_
 
-* `outer` refers to the Custom Element defined previously, and will most commonly be used for appending our tersus.js **Element's** to the dom. 
+* `outer` refers to the Custom Element defined previously, and will most commonly be used for appending our tersum.js **Element's** to the dom. 
 
 * `inner` refers to the `Shadow DOM` contained within our `outer` container, this is where the contents of our `template` from the tersum.js **Template** we created will be placed. 
 
