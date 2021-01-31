@@ -162,7 +162,7 @@ Now that we have created our Tersum.js **Element** we can display it within to o
 
 _**But what are**_ `outer` _**and**_ `inner` _**?**_
 
-* `outer` refers to the Custom Element defined previously, and will most commonly be used for appending our tersum.js **Element's** to the dom. 
+* `outer` refers to the Custom Element defined previously, and will most commonly be used for appending our tersum.js **Element's** to the dom, or when handeling Lifecycle callbacks through Event Handlers. 
 
 * `inner` refers to the `Shadow DOM` contained within our `outer` container, this is where the contents of our `template` from the tersum.js **Template** we created will be placed. 
 
