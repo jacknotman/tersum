@@ -51,7 +51,7 @@ As you can see the `Tersum.create` constructor takes two arguments, firstly a re
 
 _**But what does**_ `variables` _**do?**_
 
-* `variables` is an object, representing a series of key and value pairs, correspoding to the Tersum.js **Template Variables** we created in our tersum.js **Template**, in the above example this is `{-message-}` when a tersus.js **Element** is created we replace these variables using the corresponding key : value pair defined in our `variables` object. 
+* `variables` is an object, representing a series of key and value pairs, correspoding to the Tersum.js **Template Variables** we created in our tersum.js **Template**, in the above example this is `{-message-}` when a tersus.js **Element** is created we replace these variables using the corresponding key : value pair defined in our `variables` object, so using the above example `{-message-}` will be replaced with `Hello World!`.
 
 
 
