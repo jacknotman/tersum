@@ -2,7 +2,24 @@
 
 ## About
 
-tersum.js is a lightweight MVC Framework built to compliment Vanilla JS. 
+tersum.js is a lightweight MVC Framework built to compliment Vanilla JS, focused on making it easier to create lightweight, resuable, and adaptable components for use in your Web Application. 
+
+```Javascript
+import { Tersum } from './your-awsome-path/tersum.min.js';
+
+let myFirstTemplate = new Tersum.Define({
+	element: 'helloWorld',
+	template: `<p>{-message-}</p>`,
+});
+
+let myFirstElement = new Tersum.Create(myFirstTemplate, {
+	variables: {
+		message: `Hello World!`,
+	},
+});
+
+document.body.appendChild(myFirstElement.outer);
+```
 
 ## Getting Started
 
