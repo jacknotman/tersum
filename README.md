@@ -10,14 +10,12 @@ In the **Getting Started Guide** we will walk through how the tersum.js framewor
 
 **This example will print 'Hello World!' to the DOM, and then automatically update it to read 'Goodbye Friend!' after 3 seconds.**
 ```Javascript
-import { Tersum } from './your-awsome-path/tersum.min.js';
-
-let myFirstTemplate = new Tersum.Define({
+const myFirstTemplate = new Tersum.Define({
 	element: 'helloFriend',
 	template: `<p>{-message_part_1-} Friend!</p>`,
 });
 
-let myFirstElement = new Tersum.Create(myFirstTemplate, {
+const myFirstElement = new Tersum.Create(myFirstTemplate, {
 	variables: {
 		message_part_1: `Hello`,
 	},
@@ -32,14 +30,12 @@ setTimeout(() => {
 
 **This example will print 'Hello World!' to the DOM, and then automatically update it to read 'Hello Friend!', using** `element.animate()`, **after 3 seconds.**
 ```Javascript
-import { Tersum } from './your-awsome-path/tersum.min.js';
-
-let myFirstTemplate = new Tersum.Define({
+const myFirstTemplate = new Tersum.Define({
 	element: 'helloWorld',
 	template: `<p>{-message_part_1-} {-message_part_2-}</p>`,
 });
 
-let myFirstElement = new Tersum.Create(myFirstTemplate, {
+const myFirstElement = new Tersum.Create(myFirstTemplate, {
 	variables: {
 		message_part_1: `Hello`,
 		message_part_2: `World!`,
@@ -82,14 +78,12 @@ setTimeout(() => {
 
 **This example demonstartes how** `Event Handlers` **Can be used to control lifecycle callbacks**
 ```Javascript
-import { Tersum } from './your-awsome-path/tersum.min.js';
-
-let myFirstTemplate = new Tersum.Define({
+const myFirstTemplate = new Tersum.Define({
 	element: 'helloFriend',
 	template: `<p>{-message_part_1-} Friend!</p>`,
 });
 
-let myFirstElement = new Tersum.Create(myFirstTemplate, {
+const myFirstElement = new Tersum.Create(myFirstTemplate, {
 	variables: {
 		message_part_1: `Hello`,
 	},
@@ -114,22 +108,33 @@ setTimeout(() => {
 
 Getting started with tersum.js is easy, firstly let's start off with a basic Hello World example, and expand things from there.
 
-To get started we first have to import tersum.js, you can do that like so:
+To get started we first have to create an html file, with script tag pointing to `tersum.min.js` and your main js file like so:
 
-```javascript
-import { Tersum } from './your-awsome-path/tersum.min.js';
+```HTML
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>My First App</title>
+        <meta name="description" content="My Awesome App">
+    </head>
+    <body>
+	<script type="text/javascript" src="tersum.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+    </body>
+</html>
 ```
 
-Once you have imported tersum.js, you will first have to define a Tersum.js **Template**. Tersum.js **Template's** act as the building blocks of your application, and with them you can do many great things, but first let's start out with something simple, like the code below:
+Once you have created your HTML file, you will first have to define a Tersum.js **Template** within you main js file. Tersum.js **Template's** act as the building blocks of your application, and with them you can do many great things, but first let's start out with something simple, like the code below:
 
 ```javascript
-let myFirstTemplate = new Tersum.Define({
+const myFirstTemplate = new Tersum.Define({
 	element: 'helloWorld',
 	template: `<p>{-message-}</p>`,
 });
 ```
 
-You have now defined your first Tersum.js **Template**, _awsome!_ As you can see we pass an object to the `Tersum.Define` constructor containing two parameters that must be passed when creating any Tersum.js **Template**, these are `element` and `template` (Don't worry, there's a _lot_ more you can do with tersum.js **Templates**, but we can get into down the line). 
+You have now defined your first Tersum.js **Template**, _awesome!_ As you can see we pass an object to the `Tersum.Define` constructor containing two parameters that must be passed when creating any Tersum.js **Template**, these are `element` and `template` (Don't worry, there's a _lot_ more you can do with tersum.js **Templates**, but we can get into down the line). 
 
 _**But what are**_ `element` _**and**_ `template` _**doing?**_
 
@@ -146,7 +151,7 @@ _**But what are**_ `element` _**and**_ `template` _**doing?**_
 Now that you have defined you first Tersum.js **Template** it is time to create your first Tersum.js **Element**. Tersum.js **Element's** function much like regular DOM Objects, however with a few key exceptions which we will explore in more detail later in this tutorial. To create a simple Tersum.js **Element** you can use the following code:
 
 ```javascript
-let myFirstElement = new Tersum.Create(myFirstTemplate, {
+const myFirstElement = new Tersum.Create(myFirstTemplate, {
 	variables: {
 		message: `Hello World!`,
 	},
@@ -176,14 +181,12 @@ document.body.appendChild(myFirstElement.outer);
 Your complete javascript code should now look something like the following:
 
 ```javascript
-import { Tersum } from './your-awsome-path/tersum.min.js';
-
-let myFirstTemplate = new Tersum.Define({
+const myFirstTemplate = new Tersum.Define({
 	element: 'helloWorld',
 	template: `<p>{-message-}</p>`,
 });
 
-let myFirstElement = new Tersum.Create(myFirstTemplate, {
+const myFirstElement = new Tersum.Create(myFirstTemplate, {
 	variables: {
 		message: `Hello World!`,
 	},
