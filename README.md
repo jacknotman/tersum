@@ -37,7 +37,7 @@ _**But what are**_ `element` _**and**_ `template` _**doing?**_
 
 * `template` is a `Template Literal` representing the content of our Tersum.js **Template**, Tersum.js **Template's** contain HTML Markup, and make use of Tersum.js **Template Variables**, denoted like so `{-aVariable-}` to allow for the initialisation, retrieval, and updating of DOM data - but more on that later. 
 
-Now that you have defined you first Tersum.js **Template** it is time to create your first Tersum.js **Element**. Tersum.js **Element's** function much like regular DOM Objects, however with a few key exceptions which we will explore these in more detail later in this tutorial. To create a simple Tersum.js **Element** you can use the following code.
+Now that you have defined you first Tersum.js **Template** it is time to create your first Tersum.js **Element**. Tersum.js **Element's** function much like regular DOM Objects, however with a few key exceptions which we will explore in more detail later in this tutorial. To create a simple Tersum.js **Element** you can use the following code.
 
 ```javascript
 let myFirstElement = new Tersum.Create(myFirstTemplate, {
