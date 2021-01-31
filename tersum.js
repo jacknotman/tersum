@@ -43,10 +43,16 @@ const Tersum = {
 			// Determie if a custom function is being used to handle the update
 			if(val.using){
 				// A custom function is being used
+				if(!(val.value instanceof HTMLElement)){
+					// If the provided value is not an HTMLELement object, create a Range() for it
+					val.value = document.createRange().createContextualFragment(val.value);
+				} 
 				// Update the property inline with what is set
 				obj[prop] = val.value;
 				// Run the custom function
-				val.using(search, obj[prop]);
+				search.forEach((elem) => {
+					val.using(elem, obj[prop]);
+				});
 			} else {
 				// A custom function is not being used
 				if(!(val instanceof HTMLElement)){
