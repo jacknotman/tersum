@@ -86,3 +86,15 @@ let myFirstElement = new Tersum.Create(myFirstTemplate, {
 document.body.appendChild(myFirstElement.outer);
 ```
 
+And you should see the message `Hello World!` outputed when you visit your .htm file in the browser. 
+
+If you inspect this element, you should see HTML Markup simialr to the following: 
+
+```html 
+<body>
+	<helloworld-template>
+		#shadow-root (open)
+			<p> Hello World! </p>
+	</helloworld-template>
+</body>
+```
