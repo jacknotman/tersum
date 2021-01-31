@@ -27,7 +27,7 @@ You have now defined your first Tersum.js **Template**, _awsome!_ As you can see
 
 _**But what are**_ `element` _**and**_ `template` _**doing?**_
 
-`element` is a `DOMString` representing the name of your Tersum.js Template, as Tersum.js is built upon the Custom Elements Web Component, all Tersum.js elements will be created as Custom Elements, you do not however have to worry about case, or using a dash, as Tersum.js takes care of this for you. Using our example from above you will be generating a template like so: 
+* `element` is a `DOMString` representing the name of your Tersum.js Template, as Tersum.js is built upon the Custom Elements Web Component, all Tersum.js elements will be created as Custom Elements, you do not however have to worry about case, or using a dash, as Tersum.js takes care of this for you. Using our example from above you will be generating a template like so: 
 
 ```html
 <helloworld-tersum>
