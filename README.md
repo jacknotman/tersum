@@ -4,9 +4,11 @@
 
 tersum.js is a lightweight MVC Framework built to compliment Vanilla JS, focused on making it easier to create lightweight, resuable, and adaptable components for use in your Web Application. 
 
-In the Getting Started Guide we will walk through how the tersum.js framework can be used to create adaptive, fast, developer friendly web applications, with the power and versatility of vastly more complex frameworks. 
+In the **Getting Started Guide** we will walk through how the tersum.js framework can be used to create adaptive, fast, developer friendly web applications, with the power and versatility of vastly more complex frameworks, also feel free to check out a **Some Simple Examples** below. 
 
-As a taster here is an example of a simple tersum.js application, which will print 'Hello World!' to the DOM, and then automatically update it to read 'Goodbye World!' after 3 seconds. 
+## Some Simple Examples
+
+**This example will print 'Hello World!' to the DOM, and then automatically update it to read 'Goodbye Friend!' after 3 seconds.**
 
 ```Javascript
 import { Tersum } from './your-awsome-path/tersum.min.js';
@@ -29,6 +31,60 @@ setTimeout(() => {
 	myFirstElement.message_part_1 = 'Goodbye'; 
 	myFirstElement.message_part_2 = '<strong>Friend</strong>';
 }, 3000); // After three seconds we update the DOM to read 'Goodbye Friend!'
+```
+
+**This example will print 'Hello World!' to the DOM, and then automatically update it to read 'Hello Friend!', using a custom transition, after 3 seconds.**
+
+```Javascript
+import { Tersum } from './your-awsome-path/tersum.min.js';
+
+let myFirstTemplate = new Tersum.Define({
+	element: 'helloWorld',
+	template: `<p>{-message_part_1-} {-message_part_2-}</p>`,
+});
+
+let myFirstElement = new Tersum.Create(myFirstTemplate, {
+	variables: {
+		message_part_1: `Hello`,
+		message_part_2: `World!`,
+	},
+});
+
+document.body.appendChild(myFirstElement.outer); // A Custom Element is appended with a <p> element containing the text 'Hello World!'
+
+setTimeout(() => { 
+	myFirstElement.message_part_2 = {
+	value: `<i>Friend!</i>`,
+	using: (elem, value) => {
+		let duration = 1000;
+		let fadeOut = elem.animate([
+		 	// keyframes
+		  	{ opacity: 1 },
+			{ opacity: 0 }
+		], {
+		  	// timing options
+		  	duration: duration / 2,
+			easing: 'ease-in',
+		  	iterations: 1,
+			fill: 'forwards'
+		});
+		fadeOut.onfinish = () => {
+			elem.innerHTML = '';
+			elem.appendChild(value);
+			elem.animate([
+				// keyframes
+				{ opacity: 0 },
+				{ opacity: 1 }
+			], {
+				// timing options
+				duration: duration / 2,
+				easing: 'ease-in',
+				iterations: 1,
+				fill: 'forwards'
+			});
+		};
+	}
+}, 3000); // After three seconds we update the DOM to read 'hello Friend!' however this time we're using a custom transition
 ```
 
 ## Getting Started Guide
