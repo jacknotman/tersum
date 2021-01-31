@@ -50,8 +50,8 @@ document.body.appendChild(myFirstElement.outer); // A Custom Element is appended
 
 setTimeout(() => { 
 	myFirstElement.message_part_2 = {
-	value: `<i>Friend!</i>`,
-	using: (elem, value) => {
+		value: `<i>Friend!</i>`,
+		using: (elem, value) => {
 		let duration = 1000;
 		let fadeOut = elem.animate([
 		  	{ opacity: 1 },
@@ -75,7 +75,7 @@ setTimeout(() => {
 				fill: 'forwards'
 			});
 		};
-	}
+	};
 }, 3000); // After three seconds we update the DOM to read 'hello Friend!' however this time we're using a custom transition
 ```
 
