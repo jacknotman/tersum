@@ -23,7 +23,7 @@ let myFirstTemplate = new Tersum.Define({
 });
 ```
 
-You have now defined your first Tersum.js **Template**, _awsome!_ As you can see there are two parameters that must be passed when creating a Tersum.js **Template**, these are `element` and `template` (Don't worry, there's a _lot_ more we can get into down the line). 
+You have now defined your first Tersum.js **Template**, _awsome!_ As you can see we pass an object to the `Tersum.Define` constructor containing two parameters that must be passed when creating any Tersum.js **Template**, these are `element` and `template` (Don't worry, there's a _lot_ more you can do with tersum.js **Templates**, but we can get into down the line). 
 
 _**But what are**_ `element` _**and**_ `template` _**doing?**_
 
@@ -42,9 +42,17 @@ Now that you have defined you first Tersum.js **Template** it is time to create 
 ```javascript
 let myFirstElement = new Tersum.Create(myFirstTemplate, {
 	variables: {
-		message: `Hello`,
+		message: `Hello World!`,
 	},
 });
 ```
+
+As you can see the `Tersum.create` constructor takes two arguments, firstly a refrence to the tersum.js **Template** we created previously and an object containing a further object, `variables`. As with the the `tersus.Define` constructor, there is a lot more we can do with these elements, however we will keep things simple for now. 
+
+_**But what does**_ `variables` _**do?**_
+
+* `variables` is an object, representing a series of key and value pairs, correspoding to the Tersum.js **Template Variables** we created in our tersum.js **Template**, in the above example this is `{-message-}` when a tersus.js **Element** is created we replace these variables using the corresponding key : value pair defined in our `variables` object. 
+
+
 
 
