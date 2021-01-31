@@ -9,19 +9,17 @@ In the **Getting Started Guide** we will walk through how the tersum.js framewor
 ## Some Simple Examples
 
 **This example will print 'Hello World!' to the DOM, and then automatically update it to read 'Goodbye Friend!' after 3 seconds.**
-
 ```Javascript
 import { Tersum } from './your-awsome-path/tersum.min.js';
 
 let myFirstTemplate = new Tersum.Define({
-	element: 'helloWorld',
-	template: `<p>{-message_part_1-} {-message_part_2-}</p>`,
+	element: 'helloFriend',
+	template: `<p>{-message_part_1-} Friend!</p>`,
 });
 
 let myFirstElement = new Tersum.Create(myFirstTemplate, {
 	variables: {
 		message_part_1: `Hello`,
-		message_part_2: `World!`,
 	},
 });
 
@@ -29,12 +27,10 @@ document.body.appendChild(myFirstElement.outer); // A Custom Element is appended
 
 setTimeout(() => {
 	myFirstElement.message_part_1 = 'Goodbye'; 
-	myFirstElement.message_part_2 = '<strong>Friend</strong>';
 }, 3000); // After three seconds we update the DOM to read 'Goodbye Friend!'
 ```
 
-**This example will print 'Hello World!' to the DOM, and then automatically update it to read 'Hello Friend!', using a custom transition, after 3 seconds.**
-
+**This example will print 'Hello World!' to the DOM, and then automatically update it to read 'Hello Friend!', using** `element.animate()`, **after 3 seconds.**
 ```Javascript
 import { Tersum } from './your-awsome-path/tersum.min.js';
 
@@ -58,11 +54,9 @@ setTimeout(() => {
 	using: (elem, value) => {
 		let duration = 1000;
 		let fadeOut = elem.animate([
-		 	// keyframes
 		  	{ opacity: 1 },
 			{ opacity: 0 }
 		], {
-		  	// timing options
 		  	duration: duration / 2,
 			easing: 'ease-in',
 		  	iterations: 1,
@@ -72,11 +66,9 @@ setTimeout(() => {
 			elem.innerHTML = '';
 			elem.appendChild(value);
 			elem.animate([
-				// keyframes
 				{ opacity: 0 },
 				{ opacity: 1 }
 			], {
-				// timing options
 				duration: duration / 2,
 				easing: 'ease-in',
 				iterations: 1,
@@ -85,6 +77,36 @@ setTimeout(() => {
 		};
 	}
 }, 3000); // After three seconds we update the DOM to read 'hello Friend!' however this time we're using a custom transition
+```
+
+**This example demonstartes how** `Event Handlers` **Can be used to control lifecycle callbacks**
+```Javascript
+import { Tersum } from './your-awsome-path/tersum.min.js';
+
+let myFirstTemplate = new Tersum.Define({
+	element: 'helloFriend',
+	template: `<p>{-message_part_1-} Friend!</p>`,
+});
+
+let myFirstElement = new Tersum.Create(myFirstTemplate, {
+	variables: {
+		message_part_1: `Hello`,
+	},
+});
+
+myFirstElement.outer.addEventListener('connected', (e) => { 
+	console.log(`The element was connected!`);  
+}, false);
+
+myFirstElement.outer.addEventListener('updated', (e) => { 
+	console.log(`The element was updated!`);  
+}, false);
+
+document.body.appendChild(myFirstElement.outer); // console > The element was connected!
+
+setTimeout(() => {
+	myFirstElement.message_part_1 = 'Goodbye'; // console > The element was updated!
+}, 3000); 
 ```
 
 ## Getting Started Guide
