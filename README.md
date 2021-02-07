@@ -34,7 +34,7 @@ To get started we first have to create an html file, with script tag pointing to
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>My First tersum.js App</title>
+        <title>My First Tersum.js App</title>
         <meta name="description" content="My Awesome App">
     </head>
     <body>
@@ -57,7 +57,7 @@ You have now defined your first Tersum.js **Template**, _awesome!_ As you can se
 
 _**But what are**_ `element` _**and**_ `template` _**doing?**_
 
-* `element` is a `DOMString` representing the name of your Tersum.js Template, as Tersum.js is built upon the Custom Elements Web Component all Tersum.js elements will be created as Custom Elements, you do not however have to worry about case, or using a dash, as Tersum.js takes care of this for you. Using our example from above you will be generating a template like so: 
+* `element` is a `DOMString` representing the name of your Tersum.js Template, as Tersum.js is built upon the Custom Elements Web Component all Tersum.js elements will be created as Custom Elements, you do not however have to worry about case or using a dash within you element name as Tersum.js takes care of this for you. Using our example from above you will be generating a template like so: 
 
 ```html
 <helloworld-tersum>
