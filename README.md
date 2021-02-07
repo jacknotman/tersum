@@ -4,7 +4,7 @@
 
 tersum.js is a lightweight Template Controller Framework built to compliment Vanilla JS, focused on making it easier to create lightweight, resuable, and adaptive components for use in your Web Application. 
 
-In the **Getting Started Guide** we will walk through how the tersum.js framework can be used to create adaptive, fast, developer friendly web applications, with the power and versatility of vastly more complex frameworks. 
+In the **Getting Started Guide** we will walk through how the tersum.js framework can be used to create adaptive, fast, developer friendly web applications, with the power and versatility of vastly more complex frameworks. Alternatively, scroll to the end of this document for a few more complex examples.  
 
 ## Getting Started Guide
 
