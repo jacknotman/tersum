@@ -2,111 +2,30 @@
 
 ## About
 
-tersum.js is a lightweight MVC Framework built to compliment Vanilla JS, focused on making it easier to create lightweight, resuable, and adaptable components for use in your Web Application. 
+tersum.js is a lightweight Template Controller Framework built to compliment Vanilla JS, focused on making it easier to create lightweight, resuable, and adaptive components for use in your Web Application. 
 
-In the **Getting Started Guide** we will walk through how the tersum.js framework can be used to create adaptive, fast, developer friendly web applications, with the power and versatility of vastly more complex frameworks, also feel free to check out a **Some Simple Examples** below. 
-
-## Some Simple Examples
-
-**This example will print 'Hello World!' to the DOM, and then automatically update it to read 'Goodbye Friend!' after 3 seconds.**
-```Javascript
-const myFirstTemplate = new Tersum.Define({
-	element: 'helloFriend',
-	template: `<p>{-message_part_1-} Friend!</p>`,
-});
-
-const myFirstElement = new Tersum.Create(myFirstTemplate, {
-	variables: {
-		message_part_1: `Hello`,
-	},
-});
-
-document.body.appendChild(myFirstElement.outer); // A Custom Element is appended with a <p> element containing the text 'Hello World!'
-
-setTimeout(() => {
-	myFirstElement.message_part_1 = 'Goodbye'; 
-}, 3000); // After three seconds we update the DOM to read 'Goodbye Friend!'
-```
-
-**This example will print 'Hello World!' to the DOM, and then automatically update it to read 'Hello Friend!', using** `element.animate()`, **after 3 seconds.**
-```Javascript
-const myFirstTemplate = new Tersum.Define({
-	element: 'helloWorld',
-	template: `<p>{-message_part_1-} {-message_part_2-}</p>`,
-});
-
-const myFirstElement = new Tersum.Create(myFirstTemplate, {
-	variables: {
-		message_part_1: `Hello`,
-		message_part_2: `World!`,
-	},
-});
-
-document.body.appendChild(myFirstElement.outer); // A Custom Element is appended with a <p> element containing the text 'Hello World!'
-
-setTimeout(() => { 
-	myFirstElement.message_part_2 = {
-		value: `<i>Friend!</i>`,
-		using: (elem, value) => {
-			let duration = 1000;
-			let fadeOut = elem.animate([
-				{ opacity: 1 },
-				{ opacity: 0 }
-			], {
-				duration: duration / 2,
-				easing: 'ease-in',
-				iterations: 1,
-				fill: 'forwards'
-			});
-			fadeOut.onfinish = () => {
-				elem.innerHTML = '';
-				elem.appendChild(value);
-				elem.animate([
-					{ opacity: 0 },
-					{ opacity: 1 }
-				], {
-					duration: duration / 2,
-					easing: 'ease-in',
-					iterations: 1,
-					fill: 'forwards'
-				});
-			};
-		}
-	};
-}, 3000); // After three seconds we update the DOM to read 'hello Friend!' however this time we're using a custom transition
-```
-
-**This example demonstartes how** `Event Handlers` **Can be used to control lifecycle callbacks**
-```Javascript
-const myFirstTemplate = new Tersum.Define({
-	element: 'helloFriend',
-	template: `<p>{-message_part_1-} Friend!</p>`,
-});
-
-const myFirstElement = new Tersum.Create(myFirstTemplate, {
-	variables: {
-		message_part_1: `Hello`,
-	},
-});
-
-myFirstElement.outer.addEventListener('connected', (e) => { 
-	console.log(`The element was connected!`);  
-}, false);
-
-myFirstElement.outer.addEventListener('updated', (e) => { 
-	console.log(`The element was updated!`);  
-}, false);
-
-document.body.appendChild(myFirstElement.outer); // console > The element was connected!
-
-setTimeout(() => {
-	myFirstElement.message_part_1 = 'Goodbye'; // console > The element was updated!
-}, 3000); 
-```
+In the **Getting Started Guide** we will walk through how the tersum.js framework can be used to create adaptive, fast, developer friendly web applications, with the power and versatility of vastly more complex frameworks. 
 
 ## Getting Started Guide
 
 Getting started with tersum.js is easy, firstly let's start off with a basic Hello World example, and expand things from there.
+
+The complete js code for this example is as follows, and we will break down what each component does in more detail throughout this guide. Alternatively, some more complex examples can be found at the bottom of this document.  
+
+```javascript
+const myFirstTemplate = new Tersum.Define({
+	element: 'helloWorld',
+	template: `<p>{-message-}</p>`,
+});
+
+const myFirstElement = new Tersum.Create(myFirstTemplate, {
+	variables: {
+		message: `Hello World!`,
+	},
+});
+
+document.body.appendChild(myFirstElement.outer);
+```
 
 To get started we first have to create an html file, with script tag pointing to `tersum.min.js` and your main js file like so:
 
@@ -115,7 +34,7 @@ To get started we first have to create an html file, with script tag pointing to
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>My First App</title>
+        <title>My First tersum.js App</title>
         <meta name="description" content="My Awesome App">
     </head>
     <body>
@@ -207,3 +126,106 @@ If you inspect this element, you should see HTML Markup similar to the following
 	</helloworld-template>
 </body>
 ```
+
+## Some Simple Examples
+
+**This example will print 'Hello World!' to the DOM, and then automatically update it to read 'Goodbye Friend!' after 3 seconds.**
+```Javascript
+const myFirstTemplate = new Tersum.Define({
+	element: 'helloFriend',
+	template: `<p>{-message_part_1-} Friend!</p>`,
+});
+
+const myFirstElement = new Tersum.Create(myFirstTemplate, {
+	variables: {
+		message_part_1: `Hello`,
+	},
+});
+
+document.body.appendChild(myFirstElement.outer); // A Custom Element is appended with a <p> element containing the text 'Hello World!'
+
+setTimeout(() => {
+	myFirstElement.message_part_1 = 'Goodbye'; 
+}, 3000); // After three seconds we update the DOM to read 'Goodbye Friend!'
+```
+
+**This example will print 'Hello World!' to the DOM, and then automatically update it to read 'Hello Friend!', using** `element.animate()`, **after 3 seconds.**
+```Javascript
+const myFirstTemplate = new Tersum.Define({
+	element: 'helloWorld',
+	template: `<p>{-message_part_1-} {-message_part_2-}</p>`,
+});
+
+const myFirstElement = new Tersum.Create(myFirstTemplate, {
+	variables: {
+		message_part_1: `Hello`,
+		message_part_2: `World!`,
+	},
+});
+
+document.body.appendChild(myFirstElement.outer); // A Custom Element is appended with a <p> element containing the text 'Hello World!'
+
+setTimeout(() => { 
+	myFirstElement.message_part_2 = {
+		value: `<i>Friend!</i>`,
+		using: (elem, val, ref) => {
+			let duration = 1000;
+			let fadeOut = elem.animate([
+				// keyframes
+				{ opacity: 1 },
+				{ opacity: 0 }
+			], {
+				// timing options
+				duration: duration / 2,
+				easing: 'ease-in',
+				iterations: 1,
+				fill: 'forwards'
+			});
+			fadeOut.onfinish = async () => {
+				await Tersum.Update(elem, val, ref).then(() => {
+					elem.animate([
+						// keyframes
+						{ opacity: 0 },
+						{ opacity: 1 }
+					], {
+						// timing options
+						duration: duration / 2,
+						easing: 'ease-in',
+						iterations: 1,
+						fill: 'forwards'
+					});
+				});
+			};
+		}
+	};
+}, 3000); // After three seconds we update the DOM to read 'hello Friend!' however this time we're using a custom transition
+```
+
+**This example demonstartes how** `Event Handlers` **Can be used to control lifecycle callbacks**
+```Javascript
+const myFirstTemplate = new Tersum.Define({
+	element: 'helloFriend',
+	template: `<p>{-message_part_1-} Friend!</p>`,
+});
+
+const myFirstElement = new Tersum.Create(myFirstTemplate, {
+	variables: {
+		message_part_1: `Hello`,
+	},
+});
+
+myFirstElement.outer.addEventListener('connected', (e) => { 
+	console.log(`The element was connected!`);  
+}, false);
+
+myFirstElement.outer.addEventListener('updated', (e) => { 
+	console.log(`The element was updated!`);  
+}, false);
+
+document.body.appendChild(myFirstElement.outer); // console > The element was connected!
+
+setTimeout(() => {
+	myFirstElement.message_part_1 = 'Goodbye'; // console > The element was updated!
+}, 3000); 
+```
+
